@@ -1,0 +1,73 @@
+<%-include ../include/header.ejs%>
+<div class="container">
+    <!--博客内容-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="article-title"><%=article.title%></span>
+            <span class="pull-right">
+                <%if(isSameUser){%>
+                <a href="/articles/edit?id=<%=article._id%>"><span class="glyphicon glyphicon-edit"></span> 编辑</a>
+                <a href="/articles/delete?id=<%=article._id%>"><span class="glyphicon glyphicon-trash"></span> 删除</a>
+                <%}else {%>
+                <a href="#comment">评论</a>
+                <%}%>
+            </span>
+            <span class="pull-right like-time">点赞的人:<%=article.likeTime%></span>
+            <span class="pull-right view-time">浏览次数：<%=article.viewTime%></span>
+        </div>
+        <div class="panel-body">
+            <p class="article-content">
+                <%-article.content%>
+            </p>
+        </div>
+    </div>
+    <!--评论显示-->
+    <ul class="media-list">
+        <%comment.forEach(function (comment) {%>
+        <li class="media">
+            <div class="media-left user-portrait">
+                <img class="media-object" src="<%=comment.user.avatar%>" alt="...">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">
+                    <span><%=comment.user.username%></span>
+                </h4>
+                <p class="meida-content">
+                    <%=comment.content%>
+                </p>
+                <h4 class="media-heading">
+                    <span class="pull-right article-time"><%=comment.time%></span>
+                </h4>
+            </div>
+        </li>
+        <%})%>
+    </ul>
+    <!--评论分页-->
+    <nav>
+        <ul class="pagination pull-right">
+            <li>
+                <a href="/articles/detail?id=<%=article._id%>&pageNum=<%=((pageNum>1)?pageNum-1:1)%>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <%for(var i=1 ; i<=totalPage ; i++){%>
+                <li class="<%=((pageNum==i)?"active":"")%>"><a href="/articles/detail?id=<%=article._id%>&pageNum=<%=i%>"><%=i%></a></li>
+            <%}%>
+            <li>
+                <a href="/articles/detail?id=<%=article._id%>&pageNum=<%=((pageNum<totalPage)?pageNum+1:totalPage)%>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!--评论提交-->
+    <form class="form-horizontal" action="/articles/comment?id=<%=article._id%>" method="post">
+        <textarea class="form-control" rows="10" id="comment" name="comment" placeholder="说点什么吧..."></textarea>
+        <input type="hidden" value="" name="flag">
+        <div class="comment-control pull-right">
+            <button type="submit" class="btn btn-primary">提交评论</button>
+            <a role="button" class="btn btn-primary" href="/articles/detail?id=<%=article._id%>&likeTime=<%=article.likeTime%>">点赞</a>
+        </div>
+    </form>
+</div>
+<%-include ../include/footer.ejs%>

@@ -1,0 +1,26 @@
+<%include include/header.ejs%>
+<%if(isLogin){%>
+<div class="box">
+    <%articles.forEach(function (article) {%>
+    <div class="article">
+            <div class="article-body">
+                <div class="article-porter">
+                    <a href="/articles/detail?id=<%=article._id%>&viewTime=<%=article.viewTime%>"><img src="<%=article.poster%>" alt=""></a>
+                </div>
+                <div class="article-title">
+                    <a href="/articles/detail?id=<%=article._id%>&viewTime=<%=article.viewTime%>"><%=article.title%></a>
+                </div>
+            </div>
+            <div class="article-footer">
+                <div class="user-portrait">
+                    <img src="<%=article.user.avatar%>" alt="">
+                </div>
+                <div class="article-info">
+                    <a href="/?userId=<%=article.user._id%>"><span class="user-username"><%=article.user.username%></span></a>发布于<span class="article-time"><%=article.time%></span>
+                </div>
+            </div>
+        </div>
+    <%})%>
+</div>
+<%}%>
+<%include include/footer.ejs%>
