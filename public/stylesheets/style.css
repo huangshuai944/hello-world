@@ -1,0 +1,143 @@
+body{
+    padding-bottom: 100px;
+}
+.background{
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    background-image: url("/images/雨后夜晚的街道图片_lanrentuku.com.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .8;
+    z-index: -100;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.alert{
+    position: absolute;
+    top: 35px;
+    z-index: 1000;
+    display: none;
+}
+.box{
+    width: 100%;
+    margin: 20px auto;
+    height: auto;
+    position: relative;
+}
+.box .article{
+    float: left;
+    width: 200px;
+    box-shadow: 0 0 10px #000;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #101010;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transition: all 1s ease-out;
+}
+img{
+    width: 100%;
+    border-radius: 10px;
+}
+.article-title{
+    margin-top: 5px;
+    font-family: "Microsoft YaHei UI",Arial;
+    color: white;
+    font-size: 1.2em;
+}
+.article-title a{
+    font-family: "Microsoft YaHei UI",Arial;
+    color: white;
+    font-size: 1.2em;
+}
+.article-footer{
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+    justify-content: center;
+    margin-top: 10px;
+    border-top:1px solid #ccc;
+    padding-top: 5px;
+}
+.user-portrait{
+    width: 48px;
+    float: left;
+    margin-right: 10px;
+}
+.article-info{
+    color: white;
+}
+.article-info span{
+    color: #00b3ee;
+    font-size: 0.5em;
+}
+
+.media{
+    margin: 5px 0;
+    background:  #101010;
+    padding: 5px 15px;
+    border-radius:10px;
+}
+.media-body{
+    color: white;
+}
+.media-body .media-heading{
+    color: #00b3ee;
+}
+.media-body .media-heading span:first-child{
+    color: white;
+}
+.article-time{
+    font-size: .5em;
+}
+.view-time{
+    margin-right: 10px;
+    color: white;
+}
+.like-time{
+    margin-right: 10px;
+    color: white;
+}
+.panel-default{
+    border-color:black;
+}
+.panel-default>.panel-heading{
+    background-color: #101010;
+}
+.panel-default>.panel-body{
+    background: white;
+}
+.article-content{
+    text-indent: 2em;
+}
+.media-body .media-heading span:first-child{
+    color: #00b3ee;
+    font-size: 0.8em;
+}
+
+.comment-control{
+    margin-top: 10px;
+}
+#comment{
+    background: white;
+}
+.meida-content{
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius:5px;
+    width: 80%;
+    margin:10px 0 10px 5%;
+}
+.container{
+    background: rgba(200,200,200,.8);
+    padding:50px;
+    border-radius: 20px;
+}
